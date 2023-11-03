@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Check for proper elevation
-if [[ $EUID > 0 ]]
+test -f "./BypassAdmin" && shouldBypassAdminCheck=true || shouldBypassAdminCheck=false
+
+if [[ $EUID > 0 ]] && ! $shouldBypassAdminCheck
     then echo "This script must be run as root. Exiting..."
     exit
 fi
