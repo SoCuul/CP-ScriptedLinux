@@ -19,13 +19,13 @@ for userName in "${allUsers[@]}"; do
     # Check if account should exist on the system
     if [[ ${adminsList[@]} =~ $userName ]]
     then
-        adduser $userName sudo
+        sudo adduser $userName sudo
 
         echo ""
         echo "+ Admin has been given to: $userName"
         echo ""
     else
-        deluser $userName sudo
+        sudo deluser $userName sudo
 
         echo ""
         echo "- Admin has been revoked from: $userName"

@@ -9,7 +9,7 @@ for userData in "${usersToChange[@]}"; do
     passwordToChange=${parsedUserData[1]}
 
     # Set user password
-    echo -e "$passwordToChange\n$passwordToChange" | passwd $userToChange
+    echo -e "$passwordToChange\n$passwordToChange" | sudo passwd $userToChange
 
     echo ""
     echo "+ User named \"${userToChange}\" has been given the password: \"${passwordToChange}\""

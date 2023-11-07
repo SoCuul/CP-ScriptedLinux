@@ -17,7 +17,7 @@ for userName in "${allUsers[@]}"; do
     if [[ ! ${validUsers[@]} =~ $userName ]]
     then
         # Delete user from system
-        userdel -r $userName
+        sudo userdel -r $userName
 
         echo ""
         echo "- User has been deleted: $userName"
