@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Get users on system
 allUsersString=$(getent passwd | grep -P '^(?=.*\/bin\/bash)(?=.*\/home\/)' | cut -d: -f1)
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Get account names and passwords
 read -p "Enter which passwords accounts should have. Example: account1;password1,account2;password2: " response
 usersToChange=($(echo $response | tr "," "\n"))

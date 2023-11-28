@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Check for proper elevation
 test -f "./BypassAdmin" && shouldBypassAdminCheck=true || shouldBypassAdminCheck=false
 
-if [[ $EUID > 0 ]] && ! $shouldBypassAdminCheck
-    then echo "This script must be run as root. Exiting..."
-    exit
+if [[ $EUID > 0 ]] && ! $shouldBypassAdminCheck; then
+    sudo "$0" "$@"
+    exit $?
 fi
 
 function showMenu {
@@ -21,6 +21,8 @@ function showMenu {
 4) Set account passwords
 5) Search for files
 6) Scan for malware
+7) Set correct display resolution
+8) Show programs using ports
 "
 }
 
@@ -40,6 +42,8 @@ do
         4) bash ./modules/4-setAccountPasswords.sh ;;
         5) bash ./modules/5-searchForFiles.sh ;;
         6) bash ./modules/6-scanForMalware.sh ;;
+        7) bash ./modules/7-SetCorrectDisplayRes.sh ;;
+        8) bash ./modules/8-ShowProgramsPorts.sh ;;
         q) exit ;;
         *) echo "Invalid selection. Please try again." ;;
     esac
