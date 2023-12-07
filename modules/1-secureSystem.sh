@@ -16,7 +16,7 @@ read -p "** If you just updated all packages, reboot machine, otherwise press en
 echo ""
 
 # Install ufw and openssh
-apt-get purge openssh-server
+apt-get purge openssh-server -y
 apt-get install ufw openssh-server -y
 
 # Configure ufw (firewall) and openssh
